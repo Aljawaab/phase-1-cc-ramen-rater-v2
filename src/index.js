@@ -41,36 +41,28 @@ const addSubmitListener = () => {
     img.alt = newRamen.name;
     img.addEventListener('click', () => {
       handleClick(newRamen);
-    });
+  });
     ramenMenuDiv.appendChild(img);
 
     // Reset the form fields
     form.reset();
   });
+
 }
-
-formSubmitListener
-
-
-
-
-const displayRamens = () => {
-const ramenMenuDiv = document.getElementById('ramen-menu')
-    fetch("http://localhost:3000/ramens")
-    .then((resp) => resp.json())
-    .then((ramens) => ramens.forEach((ramen, index) => {
-      const img = document.createElement('img');
-      img.src = ramen.image;
-      img.alt = ramen.name;
-      img.addEventListener('click', () => {       
-          handleClick(ramen);
-
-      });
-      ramenMenuDiv.appendChild(img)
+  const displayRamens = () => {
+    const ramenMenuDiv = document.getElementById('ramen-menu')
+        fetch("http://localhost:3000/ramens")
+        .then((resp) => resp.json())
+        .then((ramens) => ramens.forEach((ramen, index) => {
+          const img = document.createElement('img');
+          img.src = ramen.image;
+          img.alt = ramen.name;
+          img.addEventListener('click', () => {       
+              handleClick(ramen);
+    
+          });
+          ramenMenuDiv.appendChild(img)
     }) )
-
-    
-    
 };
 
 const main = () => {
